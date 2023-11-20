@@ -14,11 +14,14 @@ let posicaoInicial;//variavel para capturar a posicao
 const capturarLocalizacao = document.getElementById('localizacao');
 const latitude = document.getElementById('latitude');
 const longitude = document.getElementById('longitude');
+const map = document.getElementById('mapa');
 
 const sucesso = (posicao) => {//callback de sucesso para captura da posicao
     posicaoInicial = posicao;
     latitude.innerHTML = posicaoInicial.coords.latitude;
     longitude.innerHTML = posicaoInicial.coords.longitude;
+    map.src = "http://maps.google.com/maps?q=" + posicaoInicial.coords.latitude + ", " + posicaoInicial.coords.longitude +
+    "&z=16&output=embed"; 
 };
 
 const erro = (error) => {//callback de error (falha para captura de localizacao)
